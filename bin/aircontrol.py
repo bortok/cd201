@@ -10,10 +10,10 @@ def extract(line):
     m = re.match('^(Title|Artist|Album Name): \"(.*?)\"\.$', line)
     if m:
         return m.group(1), m.group(2)
-    m = re.match('has connected to this player', line)
+    m = re.match('.*has connected to this player.*', line)
     if m:
         return "Control", "Connected"
-    m = re.match('has disconnected from this player', line)
+    m = re.match('.*has disconnected from this player.*', line)
     if m:
         return  "Control", "Disconnected"
     return None, None
