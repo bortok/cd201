@@ -22,7 +22,7 @@ Explore the list of Alsa devices:
 docker run --rm --device /dev/snd mikebrady/sps-alsa-explore
 ```
 
-My output with the audio HAT listed as `hw:2`:
+In my setup the audio HAT is listed as `hw:2`:
 
 ```
 > Device Full Name:    "hw:Headphones"
@@ -45,7 +45,7 @@ My output with the audio HAT listed as `hw:2`:
 
 ```
 
-Launch the Airplay server with name "Living Room", audio device `hw:2` and mixer `Digital`:
+Launch the Airplay server with name `Living Room`, audio device `hw:2` and mixer `Digital`:
 
 ```Shell
 sudo mkdir -p /var/run/airplay
