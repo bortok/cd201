@@ -39,6 +39,7 @@ try:
         if key and val:
             if key == "Control":
                 print(f"{val}")
+                sys.stdout.flush()
             else:
                 update(key, val)
                 render()
