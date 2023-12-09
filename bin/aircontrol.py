@@ -9,13 +9,20 @@ album = ""
 def match_and_parse(line):
     m = re.match('^(Title|Artist|Album Name): \"(.*?)\"\.$', line)
     if m:
-        return m.group(1), m.group(2)
-    m = re.match('.*has (connected|disconnected) (to|from) this player.*', line)
+        return "metadata", [m.group(1), m.group(2)]
+    m = re.match('^The AirPlay client at \"(.*?)\" has (connected|disconnected) (to|from) this player.*', line)
     if m:
-        return "Connection", m.group(1)
+        return "connection", [m.group(2), m.group(1)]
     return None, None
 
-def update(key, val):
+def send_connection_update(event, client):
+    if event == "connected":
+        print(f"airplay_connect with {client}")
+    elif event == "disconnected":
+        print(f"airplay_disconnect with {client}")
+    sys.stdout.flush()
+
+def update_track_meta(key, val):
     global artist, album, track
     if key == "Artist":
         artist = val
@@ -24,7 +31,7 @@ def update(key, val):
     elif key == "Title":
          track = val
 
-def render():
+def render_track_meta():
     print(f"{artist} - {album} - {track}")
     sys.stdout.flush()
 
@@ -32,14 +39,13 @@ def render():
 try:
     while True:
         line = sys.stdin.readline()
-        key, val = match_and_parse(line)
-        if key and val:
-            if key == "Connection":
-                print(f"{val}")
-                sys.stdout.flush()
+        event, data = match_and_parse(line)
+        if event and data:
+            if event == "connection":
+                send_connection_update(data[0], data[1])
             else:
-                update(key, val)
-                render()
+                update_track_meta(data[0], data[1])
+                render_track_meta()
 
 except KeyboardInterrupt:
     sys.stdout.flush()
