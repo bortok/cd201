@@ -23,7 +23,7 @@ def update(key, val):
          track = val
 
 def render():
-    print("%s - %s - %s", artist, album, track)
+    print(f"{artist} - {album} - {track}")
     sys.stdout.flush()
 
 # Main loop
