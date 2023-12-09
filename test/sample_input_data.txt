@@ -1,0 +1,232 @@
+The AirPlay client at "fe80::1234:5678:abcd:2a0d" is about to connect to this player. (AirPlay 2 only.)
+The AirPlay client at "fe80::1234:5678:abcd:2a0d" has connected to this player.
+The address used by this player for this play session is: "fe80::1234:5678:abcd:a14e".
+The name of the AirPlay client is "TEST_CLIENT".
+The AirPlay client's Device ID is "02:00:00:00:01:aa". (AirPlay 2 only.)
+The model of the AirPlay client is "MacBookPro16,1".
+The AirPlay client's MAC address is "02:00:00:00:01:aa". (AirPlay 2 only.)
+"ssnc" "acre": 0x31343937393032383233
+"ssnc" "daid": 0x38383944443733364338383146334233
+Enter Active State.
+Play Session Begin.
+Volume: "-19.35,-12.91,-30.00,0.00".
+Resume. (AirPlay 2 only.)
+Play -- first frame received/time in ns: "".
+Picture "4124033278" start.
+Picture received, length 119260 bytes.
+Picture "4124033278" end.
+Progress String "4124014468/4124038105/4130464093".
+Metadata bundle "4124039541" start.
+Persistent ID: 0x3d3a0c4c203857f8.
+Album Name: "Led Zeppelin III (Remastered)".
+Artist: "Led Zeppelin".
+Composer: "Jimmy Page & Robert Plant".
+Genre: "Rock".
+Title: "Immigrant Song".
+"core" "astn": 0x0001
+"core" "astc": 0x0000
+Song Data Kind ("asdk"): (possibly 0 == timed track, 1 == untimed stream): "0".
+"core" "caps": 0x01
+Track length: 146250 milliseconds.
+Metadata bundle "4124039541" end.
+Resume.
+Stream type: "Buffered".
+Metadata bundle "4124056020" start.
+Persistent ID: 0x3d3a0c4c203857f8.
+Album Name: "Led Zeppelin III (Remastered)".
+Artist: "Led Zeppelin".
+Composer: "Jimmy Page & Robert Plant".
+Genre: "Rock".
+Title: "Immigrant Song".
+"core" "caps": 0x01
+Track length: 146303 milliseconds.
+Metadata bundle "4124056020" end.
+Progress String "4124055300/4124056970/4130507262".
+Metadata bundle "4124283343" start.
+Persistent ID: 0x3d3a0c4c203857f8.
+Album Name: "Led Zeppelin III (Remastered)".
+Artist: "Led Zeppelin".
+Composer: "Jimmy Page & Robert Plant".
+Genre: "Rock".
+Title: "Immigrant Song".
+"core" "astc": 0x0002
+"core" "caps": 0x01
+Metadata bundle "4124283343" end.
+Progress String "4124282734/4124283820/4130734696".
+Picture "4124284009" start.
+Picture received, length 0 bytes.
+Picture "4124284009" end.
+Metadata bundle "4124284191" start.
+Persistent ID: 0x3d3a0c4c203857f8.
+Album Name: "Led Zeppelin III (Remastered)".
+Artist: "Led Zeppelin".
+Composer: "Jimmy Page & Robert Plant".
+Genre: "Rock".
+Title: "Immigrant Song".
+"core" "caps": 0x01
+Metadata bundle "4124284191" end.
+Metadata bundle "4124284421" start.
+Persistent ID: 0x3d3a0c4c203857f8.
+Album Name: "Led Zeppelin III (Remastered)".
+Artist: "Led Zeppelin".
+Composer: "Jimmy Page & Robert Plant".
+Genre: "Rock".
+Title: "Immigrant Song".
+"core" "caps": 0x01
+Metadata bundle "4124284421" end.
+Metadata bundle "4124284632" start.
+Persistent ID: 0x3d3a0c4c203857f8.
+Album Name: "Led Zeppelin III (Remastered)".
+Artist: "Led Zeppelin".
+Composer: "Jimmy Page & Robert Plant".
+Genre: "Rock".
+Title: "Immigrant Song".
+"core" "caps": 0x01
+Metadata bundle "4124284632" end.
+Picture "4124285002" start.
+Picture received, length 119260 bytes.
+Picture "4124285002" end.
+Metadata bundle "4125441741" start.
+Persistent ID: 0x3d3a0c4c203857f8.
+Album Name: "Led Zeppelin III (Remastered)".
+Artist: "Led Zeppelin".
+Composer: "Jimmy Page & Robert Plant".
+Genre: "Rock".
+Title: "Immigrant Song".
+"core" "caps": 0x01
+Track length: 146250 milliseconds.
+Metadata bundle "4125441741" end.
+Progress String "4124055429/4125442252/4130505054".
+Metadata bundle "4125442831" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "astc": 0x0000
+"core" "caps": 0x02
+Track length: 355400 milliseconds.
+Metadata bundle "4125442831" end.
+Pause. (AirPlay 2 only.)
+Resume. (AirPlay 2 only.)
+Play -- first frame received/time in ns: "".
+Picture "3200085900" start.
+Picture received, length 72118 bytes.
+Picture "3200085900" end.
+Progress String "3200064142/3200088599/3215737281".
+Metadata bundle "3200088827" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "astn": 0x0001
+"core" "astc": 0x0000
+Song Data Kind ("asdk"): (possibly 0 == timed track, 1 == untimed stream): "0".
+"core" "caps": 0x01
+Track length: 355400 milliseconds.
+Metadata bundle "3200088827" end.
+Metadata bundle "3200091611" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "astc": 0x0002
+"core" "caps": 0x02
+Metadata bundle "3200091611" end.
+Picture "3200092011" start.
+Picture received, length 0 bytes.
+Picture "3200092011" end.
+Metadata bundle "3200092870" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "caps": 0x01
+Metadata bundle "3200092870" end.
+Progress String "3200091369/3200093489/3215764508".
+Metadata bundle "3200094094" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "caps": 0x01
+Metadata bundle "3200094094" end.
+Metadata bundle "3200094608" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "caps": 0x01
+Metadata bundle "3200094608" end.
+Picture "3200095486" start.
+Picture received, length 72118 bytes.
+Picture "3200095486" end.
+Resume.
+Metadata bundle "3200108675" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "caps": 0x01
+Track length: 355455 milliseconds.
+Metadata bundle "3200108675" end.
+Progress String "3200107933/3200109634/3215783498".
+Metadata bundle "3200683607" start.
+Persistent ID: 0xfd86cf2d6c9f90f2.
+Album Name: "Meddle (2016 Remaster)".
+Artist: "Pink Floyd".
+Composer: "Roger Waters, David Gilmour, Richard Wright & Nick Mason".
+Genre: "Rock".
+Title: "One of These Days".
+"core" "caps": 0x01
+Track length: 355400 milliseconds.
+Metadata bundle "3200683607" end.
+Progress String "3200108022/3200683751/3215781161".
+Pause. (AirPlay 2 only.)
+Resume. (AirPlay 2 only.)
+Play -- first frame received/time in ns: "".
+Picture "1535360432" start.
+Picture received, length 83807 bytes.
+Picture "1535360432" end.
+Progress String "1535337990/1535362752/1550364712".
+Metadata bundle "1535363565" start.
+Persistent ID: 0xd9c6cfdac09bba87.
+Album Name: "Machine Head".
+Artist: "Deep Purple".
+Composer: "Ian Gillan, Ian Paice, Jon Lord, Ritchie Blackmore & Roger Glover".
+Genre: "Hard Rock".
+Title: "Smoke On the Water".
+"core" "astn": 0x0001
+"core" "astc": 0x0000
+Song Data Kind ("asdk"): (possibly 0 == timed track, 1 == untimed stream): "0".
+"core" "caps": 0x01
+Track length: 340742 milliseconds.
+Metadata bundle "1535363565" end.
+Resume.
+Metadata bundle "1535383205" start.
+Persistent ID: 0xd9c6cfdac09bba87.
+Album Name: "Machine Head".
+Artist: "Deep Purple".
+Composer: "Ian Gillan, Ian Paice, Jon Lord, Ritchie Blackmore & Roger Glover".
+Genre: "Hard Rock".
+Title: "Smoke On the Water".
+"core" "caps": 0x01
+Track length: 340799 milliseconds.
+Metadata bundle "1535383205" end.
+Progress String "1535382462/1535384124/1550411697".
+Pause. (AirPlay 2 only.)
+Play Session End.
+The AirPlay client at "fe80::1234:5678:abcd:2a0d" has disconnected from this player. (AirPlay 2 only.)

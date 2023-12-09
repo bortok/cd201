@@ -35,18 +35,23 @@ def render_track_meta():
     print(f"{artist} - {album} - {track}")
     sys.stdout.flush()
 
-# Main loop
-try:
-    while True:
-        line = sys.stdin.readline()
-        event, data = match_and_parse(line)
-        if event and data:
-            if event == "connection":
-                send_connection_update(data[0], data[1])
-            else:
-                update_track_meta(data[0], data[1])
-                render_track_meta()
+def main():
+    """Main loop."""
+    try:
+        while True:
+            line = sys.stdin.readline()
+            event, data = match_and_parse(line)
+            if event and data:
+                if event == "connection":
+                    send_connection_update(data[0], data[1])
+                else:
+                    update_track_meta(data[0], data[1])
+                    render_track_meta()
+    except KeyboardInterrupt:
+        sys.stdout.flush()
+        pass
 
-except KeyboardInterrupt:
-    sys.stdout.flush()
-    pass
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
