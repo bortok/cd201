@@ -3,6 +3,17 @@ Renovated harman/kardon cd201 cassette deck
 
 ## Raspberry Pi Setup
 
+### MQTT Broker
+
+```Shell
+#sudo vi /usr/local/etc/mosquitto.conf
+docker run -d --restart unless-stopped \
+    --net=host \
+    --name mqtt \
+    eclipse-mosquitto
+#    -v /usr/local/etc/mosquitto.conf:/mosquitto/config/mosquitto.conf \
+```
+
 ### Audio HAT
 
 Model: Inno-Maker Raspberry Pi HiFi DAC HAT PCM5122
@@ -28,6 +39,19 @@ metadata =
         pipe_name = "/airplay/shairport-sync-metadata";
         pipe_timeout = 5000; // wait for this number of milliseconds for a blocked pipe to unblock before giving up
         progress_interval = 0.0; // if non-zero, progress 'phbt' messages will be sent at the interval specified in seconds. A 'phb0' message will also be sent when the first audio frame of a play session is about to be played.
+};
+mqtt =
+{
+	enabled = "yes"; // set this to yes to enable the mqtt-metadata-service
+	hostname = "localhost"; // Hostname of the MQTT Broker
+	port = 1883; // Port on the MQTT Broker to connect to
+//	username = "username"; //set this to a string to your username in order to enable username authentication
+//	password = "password"; //set this to a string you your password in order to enable username & password authentication
+	topic = "shairport"; //MQTT topic where this instance of shairport-sync should publish. If not set, the general.name value is used.
+//	publish_raw = "no"; //whether to publish all available metadata under the codes given in the 'metadata' docs.
+	publish_parsed = "yes"; //whether to publish a small (but useful) subset of metadata under human-understandable topics
+	publish_cover = "no"; //whether to publish the cover over mqtt in binary form. This may lead to a bit of load on the broker
+	enable_remote = "no"; //whether to remote control via MQTT. RC is available under `topic`/remote.
 };
 ```
 
