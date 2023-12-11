@@ -12,6 +12,9 @@ client_id = f"aircontrol-{random.randint(0, 1000)}"
 # username = 'emqx'
 # password = 'public'
 
+meta_topics = ["artist", "album", "title"]
+session_topics = ["active_start", "active_end"]
+
 artist = ""
 track = ""
 album = ""
@@ -44,9 +47,11 @@ def parse_mqtt_msg(msg):
     topic = msg.topic.split("/")[-1]
     if len(topic) > 0:
         #print(f"Received {msg.payload.decode()} from {topic} topic")
-        if topic in ["artist", "album", "title"]:
+        if topic in meta_topics:
             update_track_meta(topic, msg.payload.decode())
             render_track_meta()
+        elif topic in session_topics:
+            send_connection_update(topic, msg.payload.decode())
 
 
 # no longer used
@@ -60,10 +65,10 @@ def match_and_parse(line):
     return None, None
 
 def send_connection_update(event, client):
-    if event == "connected":
-        print(f"airplay_connect with {client}")
-    elif event == "disconnected":
-        print(f"airplay_disconnect with {client}")
+    if event == "active_start":
+        print(f"airplay is active")
+    elif event == "active_end":
+        print(f"airplay is inactive")
     sys.stdout.flush()
 
 def update_track_meta(key, val):
@@ -81,7 +86,7 @@ def render_track_meta():
 
 def main():
     """Main loop."""
-    topics = ["artist", "album", "title"]
+    topics = meta_topics + session_topics
     client = connect_mqtt()
     for topic in topics:
         subscribe(topic, client)
