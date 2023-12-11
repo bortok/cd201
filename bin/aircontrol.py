@@ -1,11 +1,55 @@
 #!/usr/bin/env python
 import sys
 import re
+import random
+
+from paho.mqtt import client as mqtt_client
+
+broker = "localhost"
+port = 1883
+topic_prefix = "shairport"
+client_id = f"aircontrol-{random.randint(0, 1000)}"
+# username = 'emqx'
+# password = 'public'
 
 artist = ""
 track = ""
 album = ""
 
+
+def connect_mqtt():
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            print("Connected to MQTT Broker!")
+        else:
+            print("Failed to connect, return code %d\n", rc)
+    # Set Connecting Client ID
+    client = mqtt_client.Client(client_id)
+    # client.username_pw_set(username, password)
+    client.on_connect = on_connect
+    client.connect(broker, port)
+    return client
+
+
+def subscribe(topic, client: mqtt_client):
+    def on_message(client, userdata, msg):
+        #print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+        parse_mqtt_msg(msg)
+
+    client.subscribe(f"{topic_prefix}/{topic}")
+    client.on_message = on_message
+
+
+def parse_mqtt_msg(msg):
+    topic = msg.topic.split("/")[-1]
+    if len(topic) > 0:
+        #print(f"Received {msg.payload.decode()} from {topic} topic")
+        if topic in ["artist", "album", "title"]:
+            update_track_meta(topic, msg.payload.decode())
+            render_track_meta()
+
+
+# no longer used
 def match_and_parse(line):
     m = re.match('^(Title|Artist|Album Name): \"(.*?)\"\.$', line)
     if m:
@@ -24,11 +68,11 @@ def send_connection_update(event, client):
 
 def update_track_meta(key, val):
     global artist, album, track
-    if key == "Artist":
+    if key == "artist":
         artist = val
-    elif key == "Album Name":
+    elif key == "album":
         album = val
-    elif key == "Title":
+    elif key == "title":
          track = val
 
 def render_track_meta():
@@ -37,16 +81,12 @@ def render_track_meta():
 
 def main():
     """Main loop."""
+    topics = ["artist", "album", "title"]
+    client = connect_mqtt()
+    for topic in topics:
+        subscribe(topic, client)
     try:
-        while True:
-            line = sys.stdin.readline()
-            event, data = match_and_parse(line)
-            if event and data:
-                if event == "connection":
-                    send_connection_update(data[0], data[1])
-                else:
-                    update_track_meta(data[0], data[1])
-                    render_track_meta()
+        client.loop_forever()
     except KeyboardInterrupt:
         sys.stdout.flush()
         pass
