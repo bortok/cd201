@@ -94,7 +94,7 @@ docker run -d --restart unless-stopped --net host --device /dev/snd --name airpl
   mikebrady/shairport-sync -a "Living Room" -- -d hw:2 -c Digital
 ```
 
-### Airplay Metadata
+### Airplay Power Control
 
 1. Prepare the virtual environment (run once):
 
