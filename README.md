@@ -96,53 +96,20 @@ docker run -d --restart unless-stopped --net host --device /dev/snd --name airpl
 
 ### Airplay Metadata
 
-Build and install the metadata reader:
+1. Prepare the virtual environment (run once):
 
 ```Shell
-git clone https://github.com/mikebrady/shairport-sync-metadata-reader.git
-cd shairport-sync-metadata-reader
-autoreconf -i -f
-./configure
-make
-sudo make install
+git clone https://github.com/bortok/cd201.git
+cd cd201
+python3.9 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd ..
 ```
 
-Test the metadata reader:
+2. Use `aircontrol.py` to subscribe to the AirPlay events:
 
 ```Shell
-cat /var/run/airplay/shairport-sync-metadata | shairport-sync-metadata-reader
+source cd201/venv/bin/activate
+./cd201/bin/aircontrol.py
 ```
-
-Connect and play music. Airplay events:
-
-* Connect
-
-    ```
-    The AirPlay client at "fe80::147e:28a7:18d6:2a0d" has connected to this player.
-    ```
-
-* Play
-
-    ```
-    Enter Active State.
-    Play Session Begin.
-    ```
-
-* Pause
-
-    ```
-    Pause. (AirPlay 2 only.)
-    ```
-
-* Last song ends:
-
-    ```
-    Pause. (AirPlay 2 only.)
-    ```
-*  Disconnect
-
-    ```
-    Exit Active State.
-    Play Session End.
-    The AirPlay client at "fe80::147e:28a7:18d6:2a0d" has disconnected from this player. (AirPlay 2 only.)
-    ```
