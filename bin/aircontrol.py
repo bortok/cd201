@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import sys
+import os
 import re
+import requests
 import random
 
 from paho.mqtt import client as mqtt_client
@@ -15,9 +17,12 @@ client_id = f"aircontrol-{random.randint(0, 1000)}"
 meta_topics = ["artist", "album", "title"]
 session_topics = ["active_start", "active_end"]
 
+POWER_CRTL_ON_URL  = ""
+POWER_CRTL_OFF_URL = ""
+
 artist = ""
-track = ""
-album = ""
+track  = ""
+album  = ""
 
 
 def connect_mqtt():
@@ -67,9 +72,30 @@ def match_and_parse(line):
 def send_connection_update(event, client):
     if event == "active_start":
         print(f"airplay is active")
+        send_power_ctrl_request("on")
     elif event == "active_end":
         print(f"airplay is inactive")
+        send_power_ctrl_request("off")
     sys.stdout.flush()
+
+def send_power_ctrl_request(state):
+    if POWER_CRTL_ON_URL == "" or POWER_CRTL_OFF_URL == "":
+        print("POWER_CRTL_ON/OFF_URL is not set")
+        return
+
+    if state == "on":
+        url = POWER_CRTL_ON_URL
+    elif state == "off":
+        url = POWER_CRTL_OFF_URL
+    else:
+        print("invalid state")
+        return
+
+    try:
+        r = requests.get(url)
+        print(f"power control request sent: {r.status_code}")
+    except Exception as e:
+        print(f"power control request failed: {e}")
 
 def update_track_meta(key, val):
     global artist, album, track
@@ -86,6 +112,10 @@ def render_track_meta():
 
 def main():
     """Main loop."""
+    global POWER_CRTL_ON_URL, POWER_CRTL_OFF_URL
+    POWER_CRTL_ON_URL  = os.getenv('POWER_CRTL_ON_URL',  '')
+    POWER_CRTL_OFF_URL = os.getenv('POWER_CRTL_OFF_URL', '')
+
     topics = meta_topics + session_topics
     client = connect_mqtt()
     for topic in topics:

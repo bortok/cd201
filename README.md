@@ -102,9 +102,19 @@ docker run -d --restart unless-stopped --net host --device /dev/snd --name airpl
 git clone https://github.com/bortok/cd201.git
 cd cd201
 python3.9 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
 cd ..
+source cd201/venv/bin/activate
+pip install -r cd201/requirements.txt
+```
+
+2. Set environment variables for power control. IFTTT is used in this example. Make sure to set the API key and event names:
+
+```Shell
+POWER_CTRL_API_KEY=""
+POWER_CTRL_ON_EVENT="cd201_airplay_started"
+POWER_CTRL_OFF_EVENT="cd201_airplay_stopped"
+export POWER_CRTL_ON_URL="https://maker.ifttt.com/trigger/${POWER_CTRL_ON_EVENT}/with/key/${POWER_CTRL_API_KEY}"
+export POWER_CRTL_OFF_URL="https://maker.ifttt.com/trigger/${POWER_CTRL_OFF_EVENT}/with/key/${POWER_CTRL_API_KEY}"
 ```
 
 2. Use `aircontrol.py` to subscribe to the AirPlay events:
